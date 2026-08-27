@@ -3,40 +3,111 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+
+    <title>@ViewBag.Title - Library Management System</title>
+
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #ffffff;
+            color: #111827;
+        }
+
+        /* Top Header */
+        .library-header {
+            background-color: #0d6efd;
+            color: white;
+            padding: 20px 30px;
+        }
+
+            .library-header h1 {
+                margin: 0;
+                font-size: 28px;
+                font-weight: 600;
+            }
+
+            .library-header p {
+                margin: 8px 0 0;
+                font-size: 15px;
+            }
+
+        /* Navigation */
+        .library-nav {
+            background-color: #ffffff;
+            border-bottom: 1px solid #e5e7eb;
+            padding: 15px 30px;
+        }
+
+            .library-nav a {
+                color: #111827;
+                text-decoration: none;
+                margin-right: 25px;
+                font-size: 15px;
+            }
+
+                .library-nav a:hover {
+                    color: #0d6efd;
+                }
+
+        /* Main Content */
+        .library-container {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        /* Footer */
+        .library-footer {
+            margin-top: 40px;
+            padding: 20px 0;
+            border-top: 1px solid #e5e7eb;
+            color: #6b7280;
+            font-size: 14px;
+        }
+    </style>
 </head>
+
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="container body-content">
+
+    <!-- Library Management Header -->
+    <header class="library-header">
+        <h1>📚 Library Management System</h1>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="library-nav">
+        @Html.ActionLink("Dashboard", "Index", "LibraryManagement")
+        @Html.ActionLink("Students List", "StudentList", "Student")
+        @Html.ActionLink("Add Student", "AddStudent", "Student")       
+        @Html.ActionLink("Student Details", "StudentDetails", "Student")
+        @Html.ActionLink("Book list", "Booklist", "Book")
+        @Html.ActionLink("Add Book", "AddBook", "Book")
+        @Html.ActionLink("Book Details", "BookDetails", "Book")
+        @Html.ActionLink("Issue Book Form", "IssueBookForm", "Issue")
+        @Html.ActionLink("Issued Books List", "IssuedBookList", "Issue")
+        @Html.ActionLink("Return Book", "ReturnBook", "Book")
+        @Html.ActionLink("Issue History", "IssueHistory", "Issue")
+    </nav>
+
+    <!-- Page Content -->
+    <main class="library-container">
+
         @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+
+        <footer class="library-footer">
+            <p>&copy; @DateTime.Now.Year - Library Management System</p>
         </footer>
-    </div>
+
+    </main>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+
 </body>
 </html>

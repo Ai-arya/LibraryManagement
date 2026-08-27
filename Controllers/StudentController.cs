@@ -6,25 +6,23 @@ using System.Web.Mvc;
 
 namespace LibraryManagementSystem.Controllers
 {
-    public class HomeController : Controller
+    public class StudentController : Controller
     {
-        public ActionResult Index()
+        // Student
+        public ActionResult StudentList()
         {
             return View();
         }
-
-        public ActionResult About()
+        // add student
+        public ActionResult AddStudent()
         {
-            ViewBag.Message = "Your application description page.";
-
             return View();
         }
-
-        public ActionResult Contact()
+        // student details
+        public ActionResult StudentDetails()
         {
-            ViewBag.Message = "Your contact page.";
-
             return View();
         }
     }
+
 }
